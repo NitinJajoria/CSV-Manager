@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+		<script
+			src="https://kit.fontawesome.com/6288969100.js"
+			crossorigin="anonymous"
+		></script>
+		<link type="text/css" rel="stylesheet" href="../public/css/output.css" />
+	</head>
+	<body>
+		<main class="flex flex-row gap-12 pt-5 px-10 h-9/10">
+			<div class="w-3/4 flex flex-col gap-y-3">
+				<header class="text-gray-600 body-font h-1/10">
+					<div
+						class="container mx-auto flex flex-wrap py-5 flex-col md:flex-row items-center"
+					>
+						<a
+							class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="1em"
+								viewBox="0 0 512 512"
+								class="w-10 h-10 text-white p-2 bg-indigo-500 rounded"
+							>
+								<path
+									d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V304H176c-35.3 0-64 28.7-64 64V512H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM200 352h16c22.1 0 40 17.9 40 40v8c0 8.8-7.2 16-16 16s-16-7.2-16-16v-8c0-4.4-3.6-8-8-8H200c-4.4 0-8 3.6-8 8v80c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8v-8c0-8.8 7.2-16 16-16s16 7.2 16 16v8c0 22.1-17.9 40-40 40H200c-22.1 0-40-17.9-40-40V392c0-22.1 17.9-40 40-40zm133.1 0H368c8.8 0 16 7.2 16 16s-7.2 16-16 16H333.1c-7.2 0-13.1 5.9-13.1 13.1c0 5.2 3 9.9 7.8 12l37.4 16.6c16.3 7.2 26.8 23.4 26.8 41.2c0 24.9-20.2 45.1-45.1 45.1H304c-8.8 0-16-7.2-16-16s7.2-16 16-16h42.9c7.2 0 13.1-5.9 13.1-13.1c0-5.2-3-9.9-7.8-12l-37.4-16.6c-16.3-7.2-26.8-23.4-26.8-41.2c0-24.9 20.2-45.1 45.1-45.1zm98.9 0c8.8 0 16 7.2 16 16v31.6c0 23 5.5 45.6 16 66c10.5-20.3 16-42.9 16-66V368c0-8.8 7.2-16 16-16s16 7.2 16 16v31.6c0 34.7-10.3 68.7-29.6 97.6l-5.1 7.7c-3 4.5-8 7.1-13.3 7.1s-10.3-2.7-13.3-7.1l-5.1-7.7c-19.3-28.9-29.6-62.9-29.6-97.6V368c0-8.8 7.2-16 16-16z"
+								/>
+							</svg>
+							<span class="ml-3 text-xl">CSV Manager</span>
+						</a>
+					</div>
+				</header>
+
+				<!-- Search Bar -->
+				<div>
+					<form
+						action="/"
+						method="get"
+						class="md:ml-auto md:mr-auto flex items-center text-base justify-center"
+					>
+						<input
+							type="text"
+							name="search"
+							id="simple-search"
+							class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+							placeholder="Search Listed CSV File..."
+							value="<%= searchVal || '' %>"
+						/>
+						<button
+							type="submit"
+							class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+						>
+							<svg
+								class="w-4 h-4"
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 20 20"
+							>
+								<path
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+								/>
+							</svg>
+							<span class="sr-only">Search</span>
+						</button>
+					</form>
+				</div>
+
+				<h3 class="text-2xl font-bold underline">Uploaded Files</h3>
+
+				<!--uploded files list-->
+				<div class="w-full mx-auto overflow-auto">
+					<table class="table-auto w-full text-left whitespace-no-wrap">
+						<thead>
+							<tr>
+								<th
+									class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl"
+								>
+									SL NO.
+								</th>
+								<th
+									class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
+								>
+									File Name
+								</th>
+								<th
+									class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
+								>
+									View
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% if (searchVal && searchVal !== '') { %>
+							<!-- Search value is provided -->
+							<% for (let i = 0; i < files.length; i++) { %>+ <% let sln = i +
+							1; %> <% let file = files[i]; %> <% if
+							(file.originalname.includes(searchVal)) { %>
+							<tr>
+								<td class="px-4 py-3"><%= sln %></td>
+								<td class="px-4 py-3"><%= file.originalname %></td>
+								<td
+									class="border-t-2 border-b-2 border-gray-200 w-10 text-center"
+								>
+									<a
+										class="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
+										href="/View/<%= file._id %>"
+										>Open</a
+									>
+								</td>
+							</tr>
+							<% } %> <% } %> <% } else { %>
+							<!-- No search value provided, display all data -->
+							<% for (let i = 0; i < files.length; i++) { %> <% let sln = i + 1;
+							%> <% let file = files[i]; %>
+							<tr>
+								<td class="px-4 py-3"><%= sln %></td>
+								<td class="px-4 py-3"><%= file.originalname %></td>
+								<td
+									class="border-t-2 border-b-2 border-gray-200 w-10 text-center"
+								>
+									<a
+										class="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
+										href="/View/<%= file._id %>"
+										>Open</a
+									>
+								</td>
+							</tr>
+							<% } %> <% } %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- For Uploading File -->
+			<div
+				class="w-1/4 bg-blue-300 rounded-lg p-5 h-[95vh] flex flex-col items-center justify-between"
+			>
+				<h3 class="text-2xl font-bold underline">UPLOAD FILES</h3>
+				<div
+					class="upload-box m-3 h-52 w-52 flex flex-col items-center justify-around"
+					onclick="handleUploadClick()"
+				>
+					<i
+						class="fa-solid fa-file-csv text-9xl active:text-8xl cursor-pointer text-blue-800"
+					></i>
+					<span class="text-xl"> CLICK HERE </span>
+				</div>
+				<p class="mt-16 bg-white m-5 p-2 rounded-lg text-xl font-bold">
+					Supports CSV files only
+				</p>
+			</div>
+		</main>
+
+		<script src="../public/js/home.js"></script>
+	</body>
+</html>
