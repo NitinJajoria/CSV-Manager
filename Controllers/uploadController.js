@@ -1,7 +1,7 @@
 // CSV-parser used to convert CSV into JSON
 const csv = require("csv-parser");
-// const fs = require("fs");
-const fs = require('@cyclic.sh/s3fs') 
+const fs = require("fs");
+// const fs = require('@cyclic.sh/s3fs') 
 const path = require("path");
 const Upload = require("../Models/upload");
 
