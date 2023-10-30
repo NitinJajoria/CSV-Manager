@@ -14,5 +14,5 @@ You will need to upload a CSV file and show the data in it
 
 # Build Command - 
   npm install - To install all necessary packages, 
-  npm run devcss - To build css file for project using tailwindcss
-  npm start - To start project
+  npm run devcss - To build css file for project using tailwindcss,
+  npm start - To start server
