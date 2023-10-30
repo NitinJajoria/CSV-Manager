@@ -10,6 +10,7 @@ const port = process.env.port || 5000;
 app.use(express.urlencoded({ extended: false }));
 app.use(router);
 
+//view engine setup to ejs
 app.set("view engine", "ejs");
 app.set("views", "./Views");
 
@@ -27,5 +28,5 @@ app.listen(port, (err) => {
 	if (err) {
 		console.log("something went wrong:", err);
 	}
-	console.log("Listening on port:", port);
+	console.log(`server.js listening at http://localhost:${port}`);
 });
